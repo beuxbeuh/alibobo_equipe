@@ -34,9 +34,9 @@ if (isset($_POST['submitted'])) {
 		<input class="input" type="password" name="mdp" id="mdp" />
 		<span class="error"><?php  ?></span>
 		
-		<label for="mdp2">Verification Mot de Passe :</label>
+		<label class="fondnoir"  for="mdp2">Verification Mot de Passe :</label>
 		<input class="input" type="password" name="mdp" id="mdp" />
 		<span class="error"><?php ?></span>
 		
-		<input type="submit" name="submitted" value="Supprimer mon compte" id="submit">
+		<input class='input' id="submit" type="submit" name="submitted" value="Supprimer" >
 	</form>
