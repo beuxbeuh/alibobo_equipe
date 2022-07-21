@@ -1,0 +1,35 @@
+@import url('./reset.css');
+@import url('./header.css');
+@import url('./main.css');
+@import url('./footer.css');
+
+body {
+    color: #333;
+    background-color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#articles {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#articles td, #articles th {
+    border: 1px solid #007;
+    padding: 8px;
+}
+
+#articles:nth-child(even) {background-color: #f0f0f0;}
+
+#articles:hover {background-color: #ddd}
+
+#articles th {
+    padding: 12px, 0, 12px, 0;
+    text-align: left;
+    background-color: #ADAAFF;
+    color: #fff;
+    text-decoration: none;
+}
+
+#articles th a {text-decoration: none;}
