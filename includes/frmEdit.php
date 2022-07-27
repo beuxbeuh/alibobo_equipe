@@ -30,21 +30,19 @@
     <div>
         <label for="id_categorie">Catégorie :</label>
 	<select name="id_categorie" id="id_categorie">
-	    <option value=""><?= $article['id_categorie'] ?></option>
-	    <option value="">----Please choose the category on this article----</option>
-	    <option value=""></option>
-	    <option value=""></option>
-	    <option value=""></option>
+	    <option value=""><?= empty($jointure['libelle'])? '----': $jointure['libelle']; ?></option>
+	    <?php foreach($categories as $categorie => $categorieV) { ?>
+		<option value=""><?= $categorieV['libelle']; ?></option>
+	    <?php } ?>
 	</select>
     </div>
     <div>
 	<label for="id_tva">TVA :</label>
 	<select name="id_tva" id="id_tva">
-	     <option value=""><?= $article['id_tva'] ?></option>
-	     <option value="">----Please choose the TVA on this article!!----</option>
-	     <option value=""></option>
-	     <option value=""></option>
-	     <option value=""></option>
+	     <option value=""><?= empty($jointure['indice'])? '----Please choose the TVA on this article!!----': $jointure['indice']; ?></option>
+	    <?php foreach($tvaS as $tva => $tvaV) { ?>
+		<option value=""><?= $tvaV['indice']; ?></option>
+	    <?php } ?>
 	</select>
     </div>
     <div>
@@ -52,7 +50,7 @@
     </div>
     <div>
         <input type="reset" value="Effacer" />
-        <input type="submit" value="Envoyer" />
+        <input type="submit" name="submitted" value="Modifier" />
     </div>
     <input type="hidden" name="frmEdit" />
 </form>

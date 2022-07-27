@@ -2,6 +2,10 @@
 
 session_start();
 
+spl_autoload_register(function ($className) {
+    require_once ('./classes/' . $className . '.php');
+});
+
 require_once './functions/autoLoad.php';
 autoLoad("*.php");
 
@@ -15,9 +19,9 @@ date_default_timezone_set('Europe/Paris');
 * require renvoie une erreur fatale et arrête l'exécution du script
 */
 
-if (verifierAdmin()) 
+if (verifierAdmin())
     require_once './includes/headerAdmin.php';
-else 
+else
     require_once './includes/header.php';
 
 require_once './includes/main.php';
