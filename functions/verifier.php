@@ -1,5 +1,24 @@
 <?php
 
+function verif_id(string $id, string $tables): bool // le nom des tables sans's' pour pouvoir concatener id_tables
+{
+    if (!empty($id) && $pdo = pdo()) {
+	$itable = 'id_' . $tables . '';
+	$tables .= 's';
+	$sql = "SELECT COUNT(*) FROM $tables WHERE $itable = $id";
+//	dump($sql);	dump($itable);
+	$query = $pdo->prepare($sql);
+	$query->execute();
+	$bolean = $query->fetchAll();
+//	dump($bolean[0]['COUNT(*)']);
+	if ($bolean[0]['COUNT(*)'] === 1) {
+//		echo 'OK';
+		return true;
+	} else
+		return false;
+    }
+}
+
 function verifierLogin(string $email, string $motdepasse) {
     if ($pdo = pdo()) {
         if (verifierUtilisateur($email)) {

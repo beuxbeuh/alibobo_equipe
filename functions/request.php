@@ -13,10 +13,33 @@ function getProduct($id_article, string $tables = '')
     return $query->fetch();
 }
 
-function getAllProduct($tables = 'articles', $where = 'DESC')
+
+function getJointure(int $id_article,array $tables = [])
+{
+    if ($pdo = pdo()) {
+        if ($tables === [])
+                return(404);
+        $sql = "SELECT * FROM $tables[0] LEFT JOIN $tables[1] ON $tables[0].id_categorie = $tables[1].id_categorie LEFT JOIN $tables[2] ON $tables[0].id_tva = $tables[2].id_tva WHERE id_article = $id_article";
+	$query = $pdo->prepare($sql);
+        $query->execute();
+    }
+    return $query->fetch();
+}
+
+function exe_sql(string $sql)
+{
+    dump($sql);
+    if ($pdo = pdo()) {
+	$query = $pdo->prepare($sql);
+	$query->execute();
+    }
+    return $query->fetch();
+}
+
+function getAllProduct($tables = 'articles', $weh = 'designation', $where = 'ASC')
 {
 	if ($pdo = pdo()) {
-		$sql = "SELECT * FROM $tables ORDER BY designation $where";
+		$sql = "SELECT * FROM $tables ORDER BY $weh $where";
 		$query = $pdo->prepare($sql);
 		$query->execute();
 	}
