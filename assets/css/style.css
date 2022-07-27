@@ -33,3 +33,5 @@ body {
 }
 
 #articles th a {text-decoration: none;}
+
+pre {border: 2px solid #f0f; background-color: #000; min-width: 100px; width: min-content; height: 100px; overflow: scroll; font-size: 0.8rem; padding: 0.6rem;  color: #fff; font-family: Consolas, Monospace; cursor: zoom-in; max-height: 500px; height: min-content}pre {display: flex; flex-flow: wrap;}
