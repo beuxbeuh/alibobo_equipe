@@ -59,3 +59,7 @@ function abort404() {
         header('HTTP/1.0 404 Not Found');
         header('Location: 404.php');
 }
+
+/*
+UPDATE `articles` SET `designation` = 'Anan\'ass', `description` = 'un magnifique ananas tres feuillue et bon a croquer', `puht` = '6', `reference` = 'Ananas cosmosu', `qtestock` = '16', `qtestockesecu` = '5', `masse` = '7000', `id_tva` = '2' WHERE `articles`.`id_article` = 1
+µ*/
