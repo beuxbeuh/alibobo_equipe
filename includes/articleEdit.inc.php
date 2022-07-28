@@ -22,8 +22,8 @@ if (!empty($_GET['articleId'])) {
 	    $masse = cleanXss($_POST['masse']);
 	    cleanXss($_POST['id_categorie']);
 	    cleanXss($_POST['id_tva']);
-
-	    
+	    if (count($error) === 0)
+		echo 'pas d\'erreur';
 	}
 
 } else
